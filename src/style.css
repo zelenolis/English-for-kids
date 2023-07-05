@@ -1,0 +1,430 @@
+@font-face {
+    font-family: 'Mouse Memoirs';
+    src: url("../../assets/font/MouseMemoirs.ttf");
+}
+@font-face {
+    font-family: 'Architun Medium';
+    src: url("../../assets/font/ArchitunMedium.ttf");
+}
+
+html {
+    font-size: 10px;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Mouse Memoirs', sans-serif;
+}
+
+body {
+    background: #052F5F;
+}
+
+.fullPageMenu {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #00235B;
+    transition: 0.5s;
+}
+.fullPageMenu.active {
+    left: -100%;
+}
+.fullPageMenu .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+.fullPageMenu .nav ul {
+    position: relative;
+}
+.fullPageMenu .nav ul li {
+    position: relative;
+    list-style: none;
+    padding: 0 20px;
+    margin: 5px 0;
+    overflow: hidden;
+    display: table;
+}
+.fullPageMenu .nav ul li:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #F1A208;
+    transition: transform 0.2s ease-in-out;
+    transform: scaleY(0);
+    transform-origin: bottom;
+}
+.fullPageMenu .nav ul li:hover:before {
+    transition: transform 0.2s ease-in-out;
+    transform: scaleY(1);
+    transform-origin: top;
+}
+.fullPageMenu .nav ul li a {
+    position: relative;
+    color: #06A77D;
+    text-decoration: none;
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1em;
+    display: inline-block;
+    text-transform: uppercase;
+    transition: 0.2s ease-in-out;
+}
+.fullPageMenu .nav ul li a::before {
+    content: attr(data-text);
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    color: #06A77D;
+}
+.fullPageMenu .nav ul li:hover a {
+    transform: translateY(-100%);
+    color: fff;
+}
+.menu-active {
+    background: #F1A208;
+}
+@media (max-width: 476px) {
+    .fullPageMenu .nav ul li a {
+        font-size: 4rem;
+    }
+}
+.menuicon {
+    z-index: 300;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    display:flex;
+    flex-direction:column;
+}
+.menuicon span {
+    background: #F1A208;
+    border-radius:10px;
+    height:7px;
+    margin: 7px 0;
+    transition: 0.4s  cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+.span1 {
+       width:50%; 
+}
+.span2 {
+       width:100%;
+}
+.span3 {
+       width:75%;
+}
+.spanRotate1 {
+       transform-origin:bottom;
+       transform:rotatez(45deg) translate(8px,0px)
+}
+.spanRotate2 {
+       transform-origin:top;
+       transform:rotatez(-45deg)
+}
+.spanRotate3 {
+       transform-origin:bottom;
+       width:50%;
+       transform: translate(30px,-11px) rotatez(45deg);
+}
+.menuicon.active {
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: 10px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 5vh;
+    color: #06A77D;
+}
+header h1 {
+    font-size: 5.2rem;
+    padding: 0 10px 0 10px;
+}
+@media (max-width: 451px) {
+    header {
+        flex-wrap: wrap;
+    }
+    header h1 {
+        font-size: 5.3rem;
+        margin: auto;
+        order: 3;
+    }
+}
+header a {
+    color: #06A77D;
+    text-decoration: none;
+}
+.span-head {
+    color: #F1A208;
+}
+
+.switch {
+    text-align: center;
+}
+.switch-text {
+    font-size: 3.5rem;
+}
+.switch-play {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    border: 3px solid #06A77D;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.switch-circle {
+    position: absolute;
+    left: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    background-color: #06A77D;
+    transition: 0.3s;
+}
+.switch-active {
+    border-color: #F1A208;
+}
+.switch-active .switch-circle {
+    left: 100%;
+    transform: translateX(-100%);
+    background-color: #F1A208;
+    transition: 0.3s;
+}
+.switch-active + .switch-text {
+    color: #F1A208;
+}
+.opacity {
+    opacity: 0;
+    cursor: default !important;
+}
+
+.mainbox {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.mainbox figure {
+    text-align: center;
+    margin: 2vh;
+    border-radius: 23px;
+    border: 3px solid #052F5F;
+    background: linear-gradient(#06A77D, #06A77D 50%, #F1A208 50%, #F1A208);
+    background-size: 100% 200%;
+    transition: background 1s;
+}
+.mainbox figure:hover {
+    cursor: pointer;
+    border: 3px solid #F1A208;
+    background-color: #F1A208;
+    background-position: 100% 100%;
+}
+.mainbox img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 300px;
+}
+.mainbox figcaption {
+    font-size: 3rem;
+    padding: 1vh 0 1vh 0;
+}
+
+.visibility {display: none !important;}
+
+.playbox {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.playbox-card-wrapper {
+    position: relative;
+}
+.frontflip {
+    transform: rotateX(-180deg) !important;
+}
+.backflip {
+    transform: rotateX(0deg) !important;
+}
+.playbox-front-card {
+    text-align: center;
+    margin: 2vh;
+    border-radius: 23px;
+    border: 3px solid #052F5F;
+    background: #06A77D;
+    position: relative;
+    transform: rotateX(0deg);
+    transition: 0.5s;
+    backface-visibility: hidden;
+}
+.playbox-front-card:hover {
+    cursor: pointer;
+    border: 3px solid #F1A208;
+    background-color: #F1A208;
+    background-position: 100% 100%;
+}
+.playbox-img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    width: 300px;
+}
+.playbox-txt {
+    font-size: 3rem;
+    padding: 1vh 0 1vh 0;
+}
+.flip {
+    position: absolute;
+    right: 25px;
+    bottom: 10px;
+    width: 30px;
+}
+.playbox-back-card {
+    text-align: center;
+    margin: 2vh;
+    border-radius: 23px;
+    border: 3px solid #052F5F;
+    background: #06A77D;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateX(180deg);
+    transition: 0.5s;
+    backface-visibility: hidden;
+}
+.playbox-back-card .playbox-txt {
+    font-family: 'Architun Medium', sans-serif;
+}
+
+.playbox-front-card-play {
+    margin: 2vh;
+    border-radius: 23px;
+    border: 3px solid #052F5F;
+    position: relative;
+    background: #052F5F;
+}
+.playbox-img-play {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.go-button {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    border: 1px solid #F1A208;
+    background-color: #F1A208;
+    color: #06A77D;
+    font-size: 3.5rem;
+}
+.go-button:hover {
+    font-size: 5rem;
+    transition: 0.2s ease-in-out;
+    box-shadow: 0 0 40px 15px #F1A208;
+}
+.correctCard {
+    opacity: 0.2;
+    cursor: default !important;
+    border: none !important;
+    background: none !important;
+}
+.stars-box {
+    float: left;
+    max-width: 70%;
+}
+.repeat {
+    float: right;
+    max-width: 10%;
+}
+.final-message {
+    font-size: 5rem;
+    color: #06A77D;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.clear-wrapper {
+    margin: auto;
+    width: 70%;
+    padding-bottom: 50px;
+}
+.clear-statistic {
+    margin: 0;
+    float: right;
+    font-size: 3rem;
+    color: #06A77D;
+}
+.clear-statistic:hover {
+    cursor: pointer;
+    color: black;
+    background-color: #06A77D;
+}
+.hard-button {
+    margin: 0;
+    float: right;
+    font-size: 3rem;
+    color: #06A77D;
+}
+.hard-button:hover {
+    cursor: pointer;
+    color: black;
+    background-color: #06A77D;
+}
+.table-header {
+    margin: 0;
+    float: left;
+    font-size: 3rem;
+    color: #F1A208;
+}
+.table {
+    margin: auto;
+    width: 70%;
+    border-collapse: collapse;
+}
+.table td, th {
+    border: 2px solid #dddddd;
+    text-align: left;
+    padding: 10px;
+    font-family: 'Mouse Memoirs', 'Architun Medium', sans-serif;
+    font-size: 2rem;
+    color: #dddddd;
+}
+.table tr:nth-child(even) {
+  background-color: #05465f;
+}
+.table-active:hover {
+    background-color: #06A77D;
+    cursor: pointer;
+}
+.table .colored-cell {
+    color: black;
+    background-color: #F1A208;
+}
+@media (max-width: 476px) {
+    .table td, th {
+        padding: 5px;
+        font-size: 1rem;
+}
+}
