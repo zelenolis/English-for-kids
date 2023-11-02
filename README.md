@@ -11,4 +11,5 @@ ___
 - The main goal is to learn new words by listening and selecting the correct cards.
 - The application tracks all your actions. You can always see the statistics page for that.
 - The app works in both game and training modes. In the game mode, all incorrect answers are tracked. You can always review the most challenging words from the statistics page.
+- ESLint with rules Airbnb was used for linting this project.
 
